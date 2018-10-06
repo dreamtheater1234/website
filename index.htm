@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>ㅁㅁㅁㅁㅁㅁㅁㅁㅁ</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+
+<span style="font-size: 14pt;"><b><font face="맑은 고딕">주식 평단가 계산기</font></b></span><p><b><font face="맑은 고딕">아래의 빈 항목을 채워놓은 후 계산하기 버튼을 누르세요.</font></b><font face="맑은 고딕"><br />
+        </font><font face="나눔고딕"></font></p><div class="txc-textbox" style="background-color:rgb(219,232,251); padding:10px; border-width:1px; border-color:rgb(121,165,228); border-style:solid;"><p><strong>기존 보유단가</strong>
+        <input type="text" class="inputtext" id="stock_price" style="width: 100px;vertical-align:middle;text-align:right;">
+        <strong> 원</strong><br /></p><p>
+        </p><p><strong>기존 보유수량</strong>
+        <input type="text" class="inputtext" id="stocks" style="width: 100px;vertical-align:middle;text-align:right;">
+        <strong> 주</strong><br /></p><p>
+        </p><p><strong>신규 매수단가</strong>
+        <input type="text" class="inputtext" id="addprice" style="width: 100px;vertical-align:middle;text-align:right;">
+        <strong> 원</strong><br /></p><p>
+        </p><p><strong>신규 매수수량</strong>
+        <input type="text" class="inputtext" id="addstocks" style="width: 100px;vertical-align:middle;text-align:right;">
+        <strong> 주</strong><br /></p></div><p><strong><br /></strong></p><span style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+        </span><!--<input type="button" id="cal" value="계산하기" />--><span style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+        </span><button onclick="calstocks()"><span style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">계산하기</span></button><span style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+        </span><p><br /></p><p><b>
+        총 보유수량 : <span id="cal_stocks"></span>
+        <span> 주</span><br />
+        <!--
+        <div id="cal_result"></div>-->
+        평단가 : <span id="cal_result"></span>
+        <span> 원</span></b><br />
+        </p>
+        <script type="text/javascript">
+            function calstocks() {
+                var stock_price = document.getElementById('stock_price').value;
+                stock_price = parseInt(stock_price);
+
+                var stocks = document.getElementById('stocks').value;
+
+                stocks = parseInt(stocks);
+
+                var addprice = document.getElementById('addprice').value;
+
+                addprice = parseInt(addprice);
+
+                var addstocks = document.getElementById('addstocks').value;
+
+                addstocks = parseInt(addstocks);
+
+                var cal_stocks;
+                cal_stocks = parseInt(cal_stocks);
+                cal_stocks = eval(stocks + addstocks);
+
+                var cal_result;
+                cal_result = parseFloat(cal_result);
+                cal_result = eval(((stock_price * stocks) + (addprice * addstocks)) / cal_stocks);
+
+                //document.write("보유수량");
+                document.getElementById("cal_stocks").innerHTML=cal_stocks;
+                document.getElementById("cal_result").innerHTML= cal_result;
+                //return stock_price;
+            }
+            
+
+            //alert(stock_price);
+            /*
+            var hw = document.getElementById('hw');
+            hw.addEventListener('click', function(){
+                alert('Hello world');
+            })*/
+        </script><p><b><br /></b></p>
+
+</body>
+
+</html>
